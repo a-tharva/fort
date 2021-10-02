@@ -1,10 +1,10 @@
 # Password-Manager
 Password Manager v1.0
 
-##Introduction
+## Introduction
 Password Manager created in python with json and sqlite to store user data and encrypted passwords.
 
-##Usage
+## Usage
 
 --Login  #Already created account
   --insert        #insert into database
@@ -14,7 +14,7 @@ Password Manager created in python with json and sqlite to store user data and e
 --Signup #Create new account
 --Erase  #Delete account!!!
 
-##Development
+## Development
 Still working on this project.
 The Erase functionality is currently not provided as it creates some issues, will add that in future.
 More functions like displaying * while typing password will be added after I finish some other projects.
