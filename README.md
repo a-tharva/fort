@@ -5,7 +5,7 @@ Password Manager v1.0
 Password Manager created in python with json and sqlite to store user data and encrypted passwords.
 
 ## Usage
-```console
+```
 --Login  #Already created account
   --insert        #insert into database
   --display       #display whole database
