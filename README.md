@@ -11,6 +11,7 @@ Password Manager created in python with json and sqlite to store user data and e
   --display       #display whole database
   --show          #show selected password and decrypt it
   --logout        #logout of current acount
+  
 --Signup #Create new account
 --Erase  #Delete account!!!
 ```
