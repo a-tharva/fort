@@ -1,6 +1,9 @@
 # Password-Manager
 Password Manager v1.0
 
+![Capture password](https://user-images.githubusercontent.com/70326109/136650754-0cbf7a0d-d35c-4fac-87e3-cfe2d53b2ed8.PNG)
+
+
 ## Introduction
 Password Manager created in python with json and sqlite to store user data and encrypted passwords.
 
