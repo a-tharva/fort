@@ -7,6 +7,21 @@ Password Manager v1.0
 ## Introduction
 Password Manager created in python with json and sqlite to store user data and encrypted passwords.
 
+## Modules
+cryptography - to encrypt data before saving in database
+```
+pip install cryptography
+```
+hashlib - to hash user password before storing in json file
+```
+pip install hashlib
+```
+colorama, termcolor - for color
+```
+pip install colorama
+pip install termcolor
+```
+
 ## Usage
 ```
 --Login  #Already created account
@@ -23,4 +38,6 @@ Password Manager created in python with json and sqlite to store user data and e
 ## Development
 Still working on this project.<br>
 The Erase functionality is currently not provided as it creates some issues, will add that in future.<br>
-More functions like displaying * while typing password will be added after I finish some other projects.
+More functions like displaying * while typing password will be added after I finish some other projects.<br>
+Next version will store everything in sqlite database instead of storing user details in json file.<br>
+Copy Key option will be added to store seperate as user want. 
