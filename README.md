@@ -5,7 +5,7 @@ Password Manager v1.0
 
 
 ## Introduction
-Password Manager created in python with json and sqlite to store user data and encrypted passwords.
+Command line application Password Manager created in python with json and sqlite to store user data and encrypted passwords.
 
 ## Modules
 cryptography - to encrypt data before saving in database
