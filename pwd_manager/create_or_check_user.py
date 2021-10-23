@@ -4,10 +4,8 @@ import hashlib
 import json
 from cryptography.fernet import Fernet
 
-
+# To signup for new user 
 def signup(user_name, userpwd):
-    
-    
     user_pwd = hashlib.sha256(userpwd.encode())
     key = Fernet.generate_key()
     userpwd = userpwd.encode()
@@ -26,10 +24,8 @@ def signup(user_name, userpwd):
     
     create_db(user_name)
     
-
+# Sub menu 
 def search_verify_user(user_name, user_pwd):
-    
-    
     file_name = f'pwd_manager/{user_name}.json'
     userpwd = hashlib.sha256(user_pwd.encode())
     
@@ -98,9 +94,8 @@ def search_verify_user(user_name, user_pwd):
         print(f"No such user {user_name} found")
     
     
-    
+# Verify user password 
 def verify_password(user_name, userpwd , file_name):
-    
     userpwd = hashlib.sha256(userpwd.encode())
     
     with open (file_name, 'r') as file:

@@ -10,7 +10,7 @@ from pwd_manager.create_or_check_user import *
 init()
 
 
-
+# Main menu
 def show_menu():
     
     print("""
@@ -18,11 +18,9 @@ def show_menu():
 --Signup #Create new account
 --Erase  #Delete account!!!\n""")
     
-    while True:
-        
-            
+    while True:    
         choice = input('>')
-            
+        # To login into account
         if choice.lower() == 'login':
             
             user_name = input('Enter user name:')
@@ -32,8 +30,7 @@ def show_menu():
             del(user_pwd)
             del(user_name)
                 
-            
-            
+        # To signup for new user    
         elif choice.lower() == 'signup':
             
             try:
@@ -45,7 +42,6 @@ def show_menu():
                 if os.path.exists(loc):
                     print(' User already exist')
                     print(' Try another name')
-                
                 else:
                     userpwd = input(f' Enter password for {user_name}:')
 
@@ -56,9 +52,7 @@ def show_menu():
             except:
                 print(colored('>Something went wrong try contacting developer : github.com/a-tharva/','red'))
                 
-                
-    
-
+        # To delete all user related files and data
         elif choice.lower() == 'erase':
             
             
