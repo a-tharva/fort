@@ -3,7 +3,6 @@ from menu import *
 
 
 if __name__ == '__main__':
-    
     try:
         print(colored("""
                                 /3888@@@@8803/
