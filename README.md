@@ -24,15 +24,15 @@ pip install termcolor
 
 ## Usage
 ```
---Login  #Already created account
+> Login  # Already created account
 
-  --insert        #insert into database
-  --display       #display whole database
-  --show          #show selected password and decrypt it
-  --logout        #logout of current acount
+  > insert        # insert into database
+  > display       # display whole database
+  > show          # show selected password and decrypt it
+  > logout        # logout of current acount
   
---Signup #Create new account
---Erase  #Delete account!!!
+> Signup # Create new account
+> Erase  # Delete account!!!
 ```
 
 ## Development
