@@ -1,4 +1,3 @@
-
 from menu import *
 
 
@@ -35,4 +34,4 @@ Info:
         show_menu()
         
     except KeyboardInterrupt:
-        pass
+        print('\nExiting...')

@@ -2,7 +2,7 @@ import hashlib
 import json
 from cryptography.fernet import Fernet
 
-from pwd_manager.save_retrive  import * 
+from save_retrive_sqlite  import * 
 
 
 # To signup for new user 
@@ -16,14 +16,14 @@ def signup(user_name, userpwd):
         "key": key.decode('utf-8')
     }
     json_obj = json.dumps(data, indent = 3)
-    file_name = f'pwd_manager/{user_name}.json'
+    file_name = f'data/{user_name}.json'
     with open(file_name, 'a+') as file:
         file.write(json_obj)
     create_db(user_name)
     
 # Sub menu 
 def search_verify_user(user_name, user_pwd):
-    file_name = f'pwd_manager/{user_name}.json'
+    file_name = f'data/{user_name}.json'
     userpwd = hashlib.sha256(user_pwd.encode())
     try:
         with open (file_name, 'r') as file:
@@ -68,7 +68,7 @@ def search_verify_user(user_name, user_pwd):
                     # For logout option    
                     elif inp.lower() == 'logout':
                         del(user_pwd)
-                        print(f'Logged Out of {user_name} account')
+                        print(f'Logged Out of {user_name} account\n')
                         del(user_name)
                         break
     except FileNotFoundError:
@@ -83,5 +83,3 @@ def verify_password(user_name, userpwd , file_name):
                 return True
             else:
                 return False
-
-

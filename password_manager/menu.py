@@ -2,7 +2,7 @@ import os
 from colorama import init
 from termcolor import colored, cprint
 
-from pwd_manager.create_or_check_user import * 
+from create_or_check_user_json import * 
 
 # use Colorama to make Termcolor work on Windows too
 init()
@@ -29,7 +29,8 @@ def show_menu():
             try:
                 print('>Creating new user')
                 user_name = input(' Enter user name:')
-                loc = f'pwd_manager/{user_name}.json'
+                loc = f'data/{user_name}.json'
+                # Check if user name is available
                 if os.path.exists(loc):
                     print(' User already exist')
                     print(' Try another name')
@@ -47,7 +48,8 @@ def show_menu():
             flag = False
             user_name = input('Enter user name:')
             userpwd = input(f'Enter password for {user_name}:')
-            loc = f'pwd_manager/{user_name}.json'
+            loc = f'data/{user_name}.json'
+            # Check if user exist
             if os.path.exists(loc):
                 print(f'>File {user_name}.json exist')
                 print('>Verifying password')

@@ -1,7 +1,7 @@
 import sqlite3
 
 # Connect to database data.db
-connect = sqlite3.connect('pwd_manager/data.db')
+connect = sqlite3.connect('data/data.db')
 cursor = connect.cursor()
 
 # Create new database
@@ -12,7 +12,7 @@ def create_db(user_name):
 
 # Insert new row in database
 def insert_into(user_name, WEBSITE_NAME, WEBSITE_USER_NAME, PASSWORD):
-    print(WEBSITE_NAME, WEBSITE_USER_NAME, PASSWORD)
+    #print(WEBSITE_NAME, WEBSITE_USER_NAME, PASSWORD)
     insert = f"INSERT INTO {user_name}(WEBSITE_NAME, WEBSITE_USER_NAME, PASSWORD) VALUES('{WEBSITE_NAME}','{WEBSITE_USER_NAME}','{PASSWORD}')"
     cursor.execute(insert)
     cursor.execute('COMMIT')
@@ -24,8 +24,10 @@ def search_display_database(user_name):
     display = f'SELECT * FROM {user_name}'
     cursor.execute(display)
     show = cursor.fetchall()
-    print('-'*50)
-    print('(No., Website name, Website user name, Password)')
+#    print('|' + '-'*3 + '|' + '-'*16 + '|' + '-'*10 + '|' + '-'*97 + '|')
+#    print('-'*3 + '-'*16 + '-'*18 + '-'*89)
+    print('-'*136)
+    print('(No.| Website name   |Website user name |Password' + ' '*87 + ')')
     for row in show:
         print(row)
     print('\n')
