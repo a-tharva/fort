@@ -1,5 +1,6 @@
 import hashlib
 import json
+import getpass
 from cryptography.fernet import Fernet
 
 from save_retrive_sqlite  import * 
@@ -29,22 +30,17 @@ def search_verify_user(user_name, user_pwd):
         with open (file_name, 'r') as file:
             json_obj = json.load(file)
             if json_obj["user_pwd"] == userpwd.hexdigest():
-                print(f'User {user_name} found and logged in')
-                print(""">>
-  --insert        #insert into database
-  --display       #display whole database
-  --show          #show selected password and decrypt it
-  --logout        #logout of current acount
-                      """)
+                print(f'\nUser {user_name} found and logged in')
+                print("""[insert / display / show / logout]
+insert into database / display whole database / show selected password and decrypt it / logout of current acount""")
                 while True:
                     inp = input('>>')
                     if inp.lower() == 'insert':
-                        print('insert')
                         key = json_obj["key"]
                         key = key + user_pwd
-                        WEBSITE_NAME = input('Enter website name:')
-                        WEBSITE_USER_NAME = input(f'Enter user name for {WEBSITE_NAME}:')
-                        PASSWORD = input(f'Enter password for {WEBSITE_USER_NAME}:')
+                        WEBSITE_NAME = input('  Enter website name:')
+                        WEBSITE_USER_NAME = input(f'  Enter username or mail for {WEBSITE_NAME}:')
+                        PASSWORD = getpass.getpass(f'  Enter password for {WEBSITE_USER_NAME}:')
                         PASSWORD = PASSWORD.encode()
                         # Encrypt
                         obj = Fernet(key)
@@ -68,7 +64,7 @@ def search_verify_user(user_name, user_pwd):
                     # For logout option    
                     elif inp.lower() == 'logout':
                         del(user_pwd)
-                        print(f'Logged Out of {user_name} account\n')
+                        print(f'Logged Out of  user {user_name}\n')
                         del(user_name)
                         break
     except FileNotFoundError:

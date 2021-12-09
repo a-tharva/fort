@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+
+# Distribution
+build/
+dist/
+eggs/
+.eggs/
+lib/
+
+# For data
+*.json
+*.db

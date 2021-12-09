@@ -7,3 +7,7 @@ for _ in result:
     print('\n','User name:',_[0])
     print(' password :',_[1])
 '''
+import getpass
+
+passwoed = getpass.getpass('password:')
+print(passwoed)

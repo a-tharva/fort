@@ -30,7 +30,7 @@ def search_display_database(user_name):
     print('(No.| Website name   |Website user name |Password' + ' '*87 + ')')
     for row in show:
         print(row)
-    print('\n')
+#    print('\n')
     
 # Print selected row
 def show(user_name, website_name):

@@ -1,25 +1,23 @@
 import os
+
 from colorama import init
 from termcolor import colored, cprint
-
 from create_or_check_user_json import * 
+
 
 # use Colorama to make Termcolor work on Windows too
 init()
 
-
 # Main menu
 def show_menu():
-    print("""
---Login  #Already created account
---Signup #Create new account
---Erase  #Delete account!!!\n""")
+    print("""\n[Login / Signup / Erase]
+Login:Already created account / Signup:Create new account / Erase:Delete account!!!""")
     while True:    
         choice = input('>')
         # To login into account
         if choice.lower() == 'login':
-            user_name = input('Enter user name:')
-            user_pwd = input(f'Enter password for {user_name}:')
+            user_name = input(' Enter user name:')
+            user_pwd = getpass.getpass(f' Enter password for {user_name}:')
             search_verify_user(user_name, user_pwd)
             del(user_pwd)
             del(user_name)
@@ -35,7 +33,7 @@ def show_menu():
                     print(' User already exist')
                     print(' Try another name')
                 else:
-                    userpwd = input(f' Enter password for {user_name}:')
+                    userpwd = getpass.getpass(f' Enter password for {user_name}:')
                     signup(user_name, userpwd)
                     print(colored('Account created', 'green'))
 
