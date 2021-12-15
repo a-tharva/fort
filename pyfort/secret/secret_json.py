@@ -3,7 +3,7 @@ import json
 import getpass
 from cryptography.fernet import Fernet
 
-from save_retrive_sqlite  import * 
+from pyfort.secret.secret_sqlite  import * 
 
 
 # To signup for new user 
@@ -17,14 +17,14 @@ def signup(user_name, userpwd):
         "key": key.decode('utf-8')
     }
     json_obj = json.dumps(data, indent = 3)
-    file_name = f'data/{user_name}.json'
+    file_name = f'{PATH}/{user_name}.json'
     with open(file_name, 'a+') as file:
         file.write(json_obj)
     create_db(user_name)
     
 # Sub menu 
 def search_verify_user(user_name, user_pwd):
-    file_name = f'data/{user_name}.json'
+    file_name = f'{PATH}/{user_name}.json'
     userpwd = hashlib.sha256(user_pwd.encode())
     try:
         with open (file_name, 'r') as file:

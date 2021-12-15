@@ -6,6 +6,7 @@ build/
 dist/
 eggs/
 .eggs/
+*.egg-info/
 lib/
 
 # For data

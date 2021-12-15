@@ -2,7 +2,7 @@ import os
 
 from colorama import init
 from termcolor import colored, cprint
-from create_or_check_user_json import * 
+from pyfort.secret.secret_json import * 
 
 
 # use Colorama to make Termcolor work on Windows too
@@ -27,7 +27,7 @@ Login:Already created account / Signup:Create new account / Erase:Delete account
             try:
                 print('>Creating new user')
                 user_name = input(' Enter user name:')
-                loc = f'data/{user_name}.json'
+                loc = f'{PATH}/{user_name}.json'
                 # Check if user name is available
                 if os.path.exists(loc):
                     print(' User already exist')
@@ -46,7 +46,7 @@ Login:Already created account / Signup:Create new account / Erase:Delete account
             flag = False
             user_name = input('Enter user name:')
             userpwd = input(f'Enter password for {user_name}:')
-            loc = f'data/{user_name}.json'
+            loc = f'{PATH}/{user_name}.json'
             # Check if user exist
             if os.path.exists(loc):
                 print(f'>File {user_name}.json exist')
@@ -55,8 +55,8 @@ Login:Already created account / Signup:Create new account / Erase:Delete account
                 if flag:
                     print('!!password verified')
                     confirm = input('>>Confirm want to delete account [y/n]:')
-                    confirm1 = input('>>Sure want to delete account [y/n]:')
-                    confirm2 = input('>>For real want to delete account [y/n]:')
+                    confirm1 = input('  >>Sure want to delete account [y/n]:')
+                    confirm2 = input('    >>For real want to delete account [y/n]:')
                     if confirm == 'y' and confirm1 == 'y' and confirm2 == 'y':
                         #os.remove("demofile.txt")
                         pass    

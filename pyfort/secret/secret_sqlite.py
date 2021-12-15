@@ -1,7 +1,8 @@
 import sqlite3
+from pyfort.utils.utils import PATH
 
 # Connect to database data.db
-connect = sqlite3.connect('data/data.db')
+connect = sqlite3.connect(f'{PATH}/data.db')
 cursor = connect.cursor()
 
 # Create new database

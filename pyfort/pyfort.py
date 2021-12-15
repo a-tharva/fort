@@ -1,7 +1,7 @@
-from menu import *
+from pyfort.menu import *
 
 
-if __name__ == '__main__':
+def main():
     try:
         print(colored("""
         `*kMdMkr`        
@@ -10,7 +10,7 @@ if __name__ == '__main__':
       E@@       #@0      
     `vB@@xxxxxxx@@Bv`    
     V@@@@@@3}K@@@@@@y    
-    V@@@@@B` `Q@@@@@w    Password Manager Python
+    V@@@@@B` `Q@@@@@w    Pyfort Password Manager
     V@@@@@@] x@@@@@@w    
     V@@@@@#_--#@@@@@w    
     !dRRRRRRRRRRRRRd!""", 'blue'))
