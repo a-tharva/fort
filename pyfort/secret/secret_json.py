@@ -31,8 +31,8 @@ def search_verify_user(user_name, user_pwd):
             json_obj = json.load(file)
             if json_obj["user_pwd"] == userpwd.hexdigest():
                 print(f'\nUser {user_name} found and logged in')
-                print("""[insert / display / show / logout]
-insert into database / display whole database / show selected password and decrypt it / logout of current acount""")
+                print("""[insert / display / get / logout]
+insert into database / display whole database / get selected password and decrypt it / logout of current acount""")
                 while True:
                     inp = input('>>')
                     if inp.lower() == 'insert':
@@ -47,7 +47,7 @@ insert into database / display whole database / show selected password and decry
                         PASSWORD = obj.encrypt(PASSWORD).decode('utf-8')
                         insert_into(user_name, WEBSITE_NAME, WEBSITE_USER_NAME, PASSWORD)
                     # For show option    
-                    elif inp.lower() == 'show':
+                    elif inp.lower() == 'get':
                         website_name = input('  Enter Website name :')
                         # Decrypt
                         key = json_obj["key"]
