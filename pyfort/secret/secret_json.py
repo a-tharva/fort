@@ -23,7 +23,7 @@ def signup(user_name, userpwd):
     create_db(user_name)
     
 # Sub menu 
-def search_verify_user(user_name, user_pwd):
+def login(user_name, user_pwd):
     file_name = f'{PATH}/{user_name}.json'
     userpwd = hashlib.sha256(user_pwd.encode())
     try:
@@ -31,7 +31,8 @@ def search_verify_user(user_name, user_pwd):
             json_obj = json.load(file)
             if json_obj["user_pwd"] == userpwd.hexdigest():
                 print(f'\nUser {user_name} found and logged in')
-                print("""[insert / display / get / logout]
+                print(f'Key for {user_name}: {json_obj["key"]}')
+                print("""\n[insert / display / get / logout]
 insert into database / display whole database / get selected password and decrypt it / logout of current acount""")
                 while True:
                     inp = input('>>')
@@ -60,7 +61,7 @@ insert into database / display whole database / get selected password and decryp
                             print('      Password:', pwd)
                     # For display option    
                     elif inp.lower() == 'display' or inp.lower() == 'display all':
-                        search_display_database(user_name)
+                        display_db(user_name)
                     # For logout option    
                     elif inp.lower() == 'logout':
                         del(user_pwd)

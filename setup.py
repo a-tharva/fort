@@ -3,7 +3,11 @@ import codecs
 import os
 
 VERSION = '0.0.1'
-DESCRIPTION = 'Password manager'
+DESCRIPTION = 'command-line password manager'
+
+from pathlib import Path
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
 
 classifiers=[
         "Development Status :: 4 - Beta",
@@ -22,7 +26,10 @@ setup(
     author="Atharva Bhandvalkar",
     author_email="<atharv.bhandvalkar@gmail.com>",
     license='MIT',
+    url='https://github.com/a-tharva/fort',
     description=DESCRIPTION,
+    long_description=long_description + '\n\n' + open('CHANGELOG.txt').read(),
+    long_description_content_type='text/markdown',
     packages=find_packages(),
     install_requires=['colorama', 'termcolor', 'cryptography'],
     keywords=['python'],

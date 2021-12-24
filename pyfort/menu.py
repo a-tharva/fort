@@ -18,7 +18,7 @@ Login:Already created account / Signup:Create new account / Erase:Delete account
         if choice.lower() == 'login':
             user_name = input(' Enter user name:')
             user_pwd = getpass.getpass(f' Enter password for {user_name}:')
-            search_verify_user(user_name, user_pwd)
+            login(user_name, user_pwd)
             del(user_pwd)
             del(user_name)
                 
@@ -36,7 +36,6 @@ Login:Already created account / Signup:Create new account / Erase:Delete account
                     userpwd = getpass.getpass(f' Enter password for {user_name}:')
                     signup(user_name, userpwd)
                     print(colored('Account created', 'green'))
-
             except Exception as Error:
                 print(colored('>Something went wrong','red'))
                 print(Error)
