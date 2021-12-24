@@ -1,26 +1,29 @@
 # fort
-fort v1.0
-
-![Capture password](https://user-images.githubusercontent.com/70326109/136650754-0cbf7a0d-d35c-4fac-87e3-cfe2d53b2ed8.PNG)
-
+v0.0.1
 
 ## About
 Command line application created in python with json and sqlite to easy store password. The stored data will be encrypted so only the person with master key will be able to access it.
 
-## Modules
-cryptography - to encrypt data before saving in database
+## Installation
+From PyPI
 ```
-pip install cryptography
+pip install pyfort
 ```
-hashlib - to hash user password before storing in json file
 
-colorama, termcolor - for color
+From github
 ```
-pip install colorama
-pip install termcolor
+# Clone project
+git clone https://github.com/a-tharva/fort && cd fort
+
+# Installation
+python3 setup.py install
+
+# Run setup
+fort
 ```
 
 ## Usage
+![fort](https://user-images.githubusercontent.com/70326109/147367275-7ca73375-a66b-48f1-ae13-8eee1638e7eb.gif)
 ```
 fort
 > Login  # Already created account
@@ -32,6 +35,7 @@ fort
   
 > Signup # Create new account
 > Erase  # Delete account!!!
+> Ctrl+C # Exit
 ```
 
 ## Development
