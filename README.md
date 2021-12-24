@@ -41,7 +41,7 @@ fort
 ## Development
 Still working on this project.<br>
 - The Erase functionality is currently not provided as it creates some issues, will add that in future.<br>
-- More functions like displaying * while typing password will be added after I finish some other projects.<br>
+<!-- - More functions like displaying * while typing password will be added after I finish some other projects.<br> -->
 - Next version will store everything in sqlite database instead of storing user details in json file.<br>
 - Copy Key option will be added to store key seperate as user want. 
 
