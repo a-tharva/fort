@@ -2,7 +2,9 @@
 v0.0.1
 
 ## About
-Command line application created in python with json and sqlite to easy store password. The stored data will be encrypted so only the person with master key will be able to access it.
+Command line application created in python with json and sqlite to easy store password. The stored data will be encrypted so only the person with master key will be able to access it.<br>
+The data will be stored at the execution location. So if you execute the program within USB drive path, the data will be stored in the drive. You can take your data anywhere with this.
+- Note : The data will be stored at the execution path, so keep in mind where you execute/call program from.
 
 ## Installation
 From PyPI
@@ -41,9 +43,9 @@ fort
 ## Development
 Still working on this project.<br>
 - The Erase functionality is currently not provided as it creates some issues, will add that in future.<br>
-<!-- - More functions like displaying * while typing password will be added after I finish some other projects.<br> -->
 - Next version will store everything in sqlite database instead of storing user details in json file.<br>
 - Copy Key option will be added to store key seperate as user want. 
+<!-- - More functions like displaying * while typing password will be added after I finish some other projects.<br> -->
 
 ## Contributing
 
