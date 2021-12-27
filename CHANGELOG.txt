@@ -4,3 +4,8 @@ Change Log
 0.0.1 (15/12/2021)
 -------------------
 - First Release
+
+0.0.2 (27/12/2021)
+-------------------
+- Format changes
+- Printing table in sql table format
