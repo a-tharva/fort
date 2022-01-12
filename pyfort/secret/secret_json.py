@@ -1,6 +1,7 @@
-import hashlib
+import base64
 import json
 import getpass
+import hashlib
 from cryptography.fernet import Fernet
 
 from pyfort.secret.secret_sqlite  import * 
@@ -38,7 +39,8 @@ insert into database / display whole database / get selected password and decryp
                     inp = input('>>')
                     if inp.lower() == 'insert':
                         key = json_obj["key"]
-                        key = key + user_pwd
+                        base64_pwd = base64.b64encode(bytes(f'{user_pwd}', 'utf-8'))
+                        key = key[:len(key)-len(base64_pwd)] + base64_pwd.decode('utf-8')
                         WEBSITE_NAME = input('  Enter website name:')
                         WEBSITE_USER_NAME = input(f'  Enter username or mail for {WEBSITE_NAME}:')
                         PASSWORD = getpass.getpass(f'  Enter password for {WEBSITE_USER_NAME}:')
@@ -52,7 +54,8 @@ insert into database / display whole database / get selected password and decryp
                         website_name = input('  Enter Website name :')
                         # Decrypt
                         key = json_obj["key"]
-                        key = key + user_pwd
+                        base64_pwd = base64.b64encode(bytes(f'{user_pwd}', 'utf-8'))
+                        key = key[:len(key)-len(base64_pwd)] + base64_pwd.decode('utf-8')
                         obj = Fernet(key)
                         result = show(user_name, website_name)
                         for _ in result:
