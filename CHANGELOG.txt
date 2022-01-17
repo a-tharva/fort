@@ -9,3 +9,7 @@ Change Log
 -------------------
 - Format changes
 - Printing table in sql table format
+
+0.0.3 (17/1/2022)
+-------------------
+- Fixed and modified how encryption key is generated

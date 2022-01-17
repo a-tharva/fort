@@ -1,5 +1,5 @@
 # fort
-v0.0.2
+v0.0.3
 
 ## About
 Command line application created in python with json and sqlite to easy store password. The stored data will be encrypted so only the person with master key will be able to access it.<br>
@@ -11,7 +11,10 @@ From PyPI
 ```
 pip install pyfort
 ```
-
+- For Linux
+```
+sudo pip3 install pyfort
+```
 From github
 ```
 # Clone project
@@ -19,6 +22,9 @@ git clone https://github.com/a-tharva/fort && cd fort
 
 # Installation
 python3 setup.py install
+
+# Installation Linux
+sudo python3 setup.py install
 
 # Run setup
 fort
@@ -45,6 +51,7 @@ Still working on this project.<br>
 - The Erase functionality is currently not provided as it creates some issues, will add that in future.<br>
 - Next version will store everything in sqlite database instead of storing user details in json file.<br>
 - Copy Key option will be added to store key seperate as user want. 
+- Password / username / website name rename feature will be added in next version
 <!-- - More functions like displaying * while typing password will be added after I finish some other projects.<br> -->
 
 ## Contributing

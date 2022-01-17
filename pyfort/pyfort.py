@@ -3,7 +3,7 @@ from pyfort.menu import *
 
 def main():
     try:
-        print(colored("""
+        print("""
         `*kMdMkr`        
        l@@#MeMB@@c       
       l@@L     x@@V      
@@ -13,7 +13,7 @@ def main():
     V@@@@@B` `Q@@@@@w    |  _/ _ \ '_|  _| 
     V@@@@@@] x@@@@@@w    |_| \___/_|  \__|  Password Manager
     V@@@@@#_--#@@@@@w    
-    !dRRRRRRRRRRRRRd!""", 'blue'))
+    !dRRRRRRRRRRRRRd!""")
         
         print(colored( """
 Program Created By a-tharva

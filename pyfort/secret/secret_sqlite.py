@@ -14,7 +14,6 @@ def create_db(user_name):
 
 # Insert new row in database
 def insert_into(user_name, WEBSITE_NAME, WEBSITE_USER_NAME, PASSWORD):
-    #print(WEBSITE_NAME, WEBSITE_USER_NAME, PASSWORD)
     insert = f"INSERT INTO {user_name}(WEBSITE_NAME, WEBSITE_USER_NAME, PASSWORD) VALUES('{WEBSITE_NAME}','{WEBSITE_USER_NAME}','{PASSWORD}')"
     cursor.execute(insert)
     cursor.execute('COMMIT')
@@ -41,5 +40,5 @@ def display_db(user_name):
     print('|No.|Website name   |Website user name{0[0]:13s}|Password{0[0]:92s}|'.format(['']))
     print('+---+'+'-'*15+'+'+'-'*30+'+'+'-'*100+'+')
     for row in show:
-        print('|{0[0]:3d}|{0[1]:15s}|{0[2]:30s}|{0[3]:50s}|'.format(row))
+        print('|{0[0]:3d}|{0[1]:15s}|{0[2]:30s}|{0[3]:50s}'.format(row))
     print('+---+'+'-'*15+'+'+'-'*30+'+'+'-'*100+'+')

@@ -38,9 +38,14 @@ insert into database / display whole database / get selected password and decryp
                 while True:
                     inp = input('>>')
                     if inp.lower() == 'insert':
+                        # Combining key with password
                         key = json_obj["key"]
-                        base64_pwd = base64.b64encode(bytes(f'{user_pwd}', 'utf-8'))
-                        key = key[:len(key)-len(base64_pwd)] + base64_pwd.decode('utf-8')
+                        key = key[:len(key)-len(user_pwd)] + user_pwd
+                        sha256_key = hashlib.sha256(key.encode())
+                        sha256_key = sha256_key.hexdigest()
+                        sha256_key = bytes(sha256_key[:32],'utf-8')
+                        key = base64.urlsafe_b64encode(sha256_key)
+                        
                         WEBSITE_NAME = input('  Enter website name:')
                         WEBSITE_USER_NAME = input(f'  Enter username or mail for {WEBSITE_NAME}:')
                         PASSWORD = getpass.getpass(f'  Enter password for {WEBSITE_USER_NAME}:')
@@ -52,11 +57,15 @@ insert into database / display whole database / get selected password and decryp
                     # For show option    
                     elif inp.lower() == 'get':
                         website_name = input('  Enter Website name :')
-                        # Decrypt
+                        # Combining key with password
                         key = json_obj["key"]
-                        base64_pwd = base64.b64encode(bytes(f'{user_pwd}', 'utf-8'))
-                        key = key[:len(key)-len(base64_pwd)] + base64_pwd.decode('utf-8')
+                        key = key[:len(key)-len(user_pwd)] + user_pwd
+                        sha256_key = hashlib.sha256(key.encode())
+                        sha256_key = sha256_key.hexdigest()
+                        sha256_key = bytes(sha256_key[:32],'utf-8')
+                        key = base64.urlsafe_b64encode(sha256_key)
                         obj = Fernet(key)
+                        # Retrive and decrypt
                         result = show(user_name, website_name)
                         for _ in result:
                             print('\n','     User name:', _[0])
