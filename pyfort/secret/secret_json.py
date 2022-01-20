@@ -36,8 +36,8 @@ def login(user_name, user_pwd):
                 print("""\n[insert / display / get / logout]
 insert into database / display whole database / get selected password and decrypt it / logout of current acount""")
                 while True:
-                    inp = input('>>')
-                    if inp.lower() == 'insert':
+                    inp = input('>>').lower()
+                    if inp == 'insert':
                         # Combining key with password
                         key = json_obj["key"]
                         key = key[:len(key)-len(user_pwd)] + user_pwd
@@ -55,7 +55,7 @@ insert into database / display whole database / get selected password and decryp
                         PASSWORD = obj.encrypt(PASSWORD).decode('utf-8')
                         insert_into(user_name, WEBSITE_NAME, WEBSITE_USER_NAME, PASSWORD)
                     # For show option    
-                    elif inp.lower() == 'get':
+                    elif inp == 'get':
                         website_name = input('  Enter Website name :')
                         # Combining key with password
                         key = json_obj["key"]
@@ -68,14 +68,14 @@ insert into database / display whole database / get selected password and decryp
                         # Retrive and decrypt
                         result = show(user_name, website_name)
                         for _ in result:
-                            print('\n','     User name:', _[0])
+                            print('     User name:', _[0])
                             pwd = obj.decrypt(_[1].encode()).decode('utf-8')
-                            print('      Password:', pwd)
+                            print('      Password:', pwd,'\n')
                     # For display option    
-                    elif inp.lower() == 'display' or inp.lower() == 'display all':
+                    elif inp == 'display' or inp == 'display all':
                         display_db(user_name)
                     # For logout option    
-                    elif inp.lower() == 'logout':
+                    elif inp == 'logout':
                         del(user_pwd)
                         print(f'Logged Out of  user {user_name}\n')
                         del(user_name)
