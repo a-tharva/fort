@@ -3,6 +3,7 @@ import os
 from colorama import init
 from termcolor import colored, cprint
 from pyfort.secret.secret_json import * 
+from pyfort.secret.secret_sqlite import delete_table 
 
 
 # use Colorama to make Termcolor work on Windows too
@@ -10,9 +11,8 @@ init()
 
 # Main menu
 def show_menu():
-    print("""\n[Login / Signup / Erase]
-Login:Already created account / Signup:Create new account / Erase:Delete account!!!""")
-    while True:    
+    while True: 
+        print('\n[Login / Signup / Erase] \nLogin:Already created account / Signup:Create new account / Erase:Delete account!!!')
         choice = input('>')
         # To login into account
         if choice.lower() == 'login':
@@ -36,6 +36,7 @@ Login:Already created account / Signup:Create new account / Erase:Delete account
                     userpwd = getpass.getpass(f' Enter password for {user_name}:')
                     signup(user_name, userpwd)
                     print(colored('Account created', 'green'))
+                    print(colored('Database created', 'green'))
             except Exception as Error:
                 print(colored('>Something went wrong','red'))
                 print(Error)
@@ -53,12 +54,12 @@ Login:Already created account / Signup:Create new account / Erase:Delete account
                 flag = verify_password(user_name, userpwd, loc)
                 if flag:
                     print('!!password verified')
-                    confirm = input('>>Confirm want to delete account [y/n]:')
-                    confirm1 = input('  >>Sure want to delete account [y/n]:')
-                    confirm2 = input('    >>For real want to delete account [y/n]:')
-                    if confirm == 'y' and confirm1 == 'y' and confirm2 == 'y':
-                        #os.remove("demofile.txt")
-                        pass    
+                    confirm = input('>>Confirm want to delete account [Y/n]:')
+                    confirm1 = input('  >>Sure want to delete data [Y/n]:')
+                    if confirm == 'Y' and confirm1 == 'Y':
+                        delete_table(user_name)
+                        os.remove(loc)
+                        print('!!User file and data deleted!!')
                 else:
                     print('!!password incorrect')
             else:

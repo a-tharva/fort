@@ -4,6 +4,7 @@ import getpass
 import hashlib
 from cryptography.fernet import Fernet
 
+from pyfort.utils.utils import _help
 from pyfort.secret.secret_sqlite  import * 
 
 
@@ -23,7 +24,7 @@ def signup(user_name, userpwd):
         file.write(json_obj)
     create_db(user_name)
     
-# Sub menu 
+# User menu 
 def login(user_name, user_pwd):
     file_name = f'{PATH}/{user_name}.json'
     userpwd = hashlib.sha256(user_pwd.encode())
@@ -33,10 +34,11 @@ def login(user_name, user_pwd):
             if json_obj["user_pwd"] == userpwd.hexdigest():
                 print(f'\nUser {user_name} found and logged in')
                 print(f'Key for {user_name}: {json_obj["key"]}')
-                print("""\n[insert / display / get / logout]
-insert into database / display whole database / get selected password and decrypt it / logout of current acount""")
+                print('\n[display / get / help / insert / logout / remove / replace]')
                 while True:
                     inp = input('>>').lower()
+                    
+                    # Insert into table with Password encryption
                     if inp == 'insert':
                         # Combining key with password
                         key = json_obj["key"]
@@ -54,7 +56,8 @@ insert into database / display whole database / get selected password and decryp
                         obj = Fernet(key)
                         PASSWORD = obj.encrypt(PASSWORD).decode('utf-8')
                         insert_into(user_name, WEBSITE_NAME, WEBSITE_USER_NAME, PASSWORD)
-                    # For show option    
+                    
+                    # Print data with decrypted password    
                     elif inp == 'get':
                         website_name = input('  Enter Website name :')
                         # Combining key with password
@@ -71,10 +74,25 @@ insert into database / display whole database / get selected password and decryp
                             print('     User name:', _[0])
                             pwd = obj.decrypt(_[1].encode()).decode('utf-8')
                             print('      Password:', pwd,'\n')
-                    # For display option    
+                    
+                    # Print whole table, format the table in sql table print format
+                    # sqlite api have issue so table format print is done with normal
+                    # python print
                     elif inp == 'display' or inp == 'display all':
                         display_db(user_name)
-                    # For logout option    
+                        
+                    # Replace selected column and id with provided one
+                    elif inp == 'replace':
+#                        replace_opt = input('  Select ')
+#                        def replace_element(user_name, to_update, value, id_no)
+                        pass
+                    
+                    # Help function from utils, print contents from _help() function
+                    elif inp == 'help':
+                        _help()
+                    
+                    # Logout of current user and return to main menu 
+                    # user name and passwoer is deleted 
                     elif inp == 'logout':
                         del(user_pwd)
                         print(f'Logged Out of  user {user_name}\n')

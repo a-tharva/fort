@@ -4,15 +4,15 @@ from pyfort.menu import *
 def main():
     try:
         print("""
-        `*kMdMkr`        
-       l@@#MeMB@@c       
-      l@@L     x@@V      
-      E@@       #@0      
-    `vB@@xxxxxxx@@Bv`      __         _
+          kMdMk         
+        @@#MeMB@@        
+       @@       @@       
+      @@         @0      
+     vB@@xxxxxxx@@Bv       __         _
     V@@@@@@3}K@@@@@@y     / _|___ _ _| |_
     V@@@@@B` `Q@@@@@w    |  _/ _ \ '_|  _| 
-    V@@@@@@] x@@@@@@w    |_| \___/_|  \__|  Password Manager
-    V@@@@@#_--#@@@@@w    
+    V@@@@@@] [@@@@@@w    |_| \___/_|  \__|  Password Manager
+    V@@@@@#|_|#@@@@@w    
     !dRRRRRRRRRRRRRd!""")
         
         print(colored( """
