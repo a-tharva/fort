@@ -59,6 +59,6 @@ def delete_table(user_name):
     cursor.execute('COMMIT')
     
 def delete_entry(user_name, id_no):
-    delete_entry = f'DELETE FORM {user_name} WHERE ID = {id_no}'
+    delete_entry = f'DELETE FROM {user_name} WHERE ID = {id_no}'
     cursor.execute(delete_entry)
     cursor.execute('COMMIT')

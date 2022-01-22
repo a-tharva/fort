@@ -6,15 +6,14 @@ PATH = 'pyfort'
 def _help():
     print('''
 
-[display / get / help / insert / logout / replace]
+  [display / get / help / insert / logout / replace]
 
-display:    display whole database 
-get:        get selected password and decrypt it 
-help:       print help context
-insert:     insert into database 
-logout:     logout of current acount
-replace:    replace element from table
-
+  display:    display whole database 
+  get:        get selected password and decrypt it 
+  help:       print help context
+  insert:     insert into database 
+  logout:     logout of current acount
+  replace:    replace element from table
 ''')
 
 # logo print function

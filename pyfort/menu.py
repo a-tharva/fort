@@ -12,7 +12,7 @@ init()
 # Main menu
 def show_menu():
     while True: 
-        print('\n[Login / Signup / Erase] \nLogin:Already created account / Signup:Create new account / Erase:Delete account!!!')
+        print('\n[Login / Signup / Erase / Ctrl+C] \nLogin:Already created account / Signup:Create new account / Erase:Delete account!!!')
         choice = input('>')
         # To login into account
         if choice.lower() == 'login':

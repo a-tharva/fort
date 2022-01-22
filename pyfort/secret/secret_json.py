@@ -34,14 +34,14 @@ def login(user_name, user_pwd):
             if json_obj["user_pwd"] == userpwd.hexdigest():
                 print(f'\nUser {user_name} found and logged in')
                 print(f'Key for {user_name}: {json_obj["key"]}')
-                print('\n[display / get / help / insert / logout / remove / replace]')
                 while True:
+                    print('\n[display / get / help / insert / logout / remove / replace]')
                     inp = input('>>').lower()
                     
                     # Print whole table, format the table in sql table print format
                     # sqlite api have issue so table format print is done with normal
                     # python print
-                    elif inp == 'display' or inp == 'display all':
+                    if inp == 'display' or inp == 'display all':
                         display_db(user_name)
                         
                     # Print data with decrypted password    
@@ -67,7 +67,7 @@ def login(user_name, user_pwd):
                         _help()
                         
                     # Insert into table with Password encryption
-                    if inp == 'insert':
+                    elif inp == 'insert':
                         # Combining key with password
                         key = json_obj["key"]
                         key = key[:len(key)-len(user_pwd)] + user_pwd
@@ -95,10 +95,11 @@ def login(user_name, user_pwd):
                         
                     # Remove
                     elif inp == 'remove':
-                        print('  Entire row including username password for the site will be deleted')
+                        print('  Entire row including username and password for the site will be deleted')
                         id_no = input('  Enter row number to delete:')
                         try:
                             delete_entry(user_name, id_no)
+                            print(f'  Row {id_no} removed from database')
                         except Exception as error:
                             print(error)
                         
@@ -106,7 +107,7 @@ def login(user_name, user_pwd):
                     elif inp == 'replace':
 #                        replace_opt = input('  Select ')
 #                        def replace_element(user_name, to_update, value, id_no)
-                        pass
+                        print('Function yet to be implemented')
                     
     except FileNotFoundError:
         print(f"No such user {user_name} found")

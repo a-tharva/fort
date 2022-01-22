@@ -15,11 +15,11 @@ def main():
     V@@@@@#|_|#@@@@@w    
     !dRRRRRRRRRRRRRd!""")
         
-        print(colored( """
+        print("""
 Program Created By a-tharva
 Link to Original: github.com/a-tharva/
 Info: - This is written in Python
-      - Still in development""", 'red'))
+      - Still in development""")
         show_menu()
         
     except KeyboardInterrupt:
