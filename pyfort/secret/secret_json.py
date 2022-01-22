@@ -38,6 +38,34 @@ def login(user_name, user_pwd):
                 while True:
                     inp = input('>>').lower()
                     
+                    # Print whole table, format the table in sql table print format
+                    # sqlite api have issue so table format print is done with normal
+                    # python print
+                    elif inp == 'display' or inp == 'display all':
+                        display_db(user_name)
+                        
+                    # Print data with decrypted password    
+                    elif inp == 'get':
+                        website_name = input('  Enter Website name :')
+                        # Combining key with password
+                        key = json_obj["key"]
+                        key = key[:len(key)-len(user_pwd)] + user_pwd
+                        sha256_key = hashlib.sha256(key.encode())
+                        sha256_key = sha256_key.hexdigest()
+                        sha256_key = bytes(sha256_key[:32],'utf-8')
+                        key = base64.urlsafe_b64encode(sha256_key)
+                        obj = Fernet(key)
+                        # Retrive and decrypt
+                        result = show(user_name, website_name)
+                        for _ in result:
+                            print('     User name:', _[0])
+                            pwd = obj.decrypt(_[1].encode()).decode('utf-8')
+                            print('      Password:', pwd,'\n')
+                            
+                    # Help function from utils, print contents from _help() function
+                    elif inp == 'help':
+                        _help()
+                        
                     # Insert into table with Password encryption
                     if inp == 'insert':
                         # Combining key with password
@@ -57,40 +85,6 @@ def login(user_name, user_pwd):
                         PASSWORD = obj.encrypt(PASSWORD).decode('utf-8')
                         insert_into(user_name, WEBSITE_NAME, WEBSITE_USER_NAME, PASSWORD)
                     
-                    # Print data with decrypted password    
-                    elif inp == 'get':
-                        website_name = input('  Enter Website name :')
-                        # Combining key with password
-                        key = json_obj["key"]
-                        key = key[:len(key)-len(user_pwd)] + user_pwd
-                        sha256_key = hashlib.sha256(key.encode())
-                        sha256_key = sha256_key.hexdigest()
-                        sha256_key = bytes(sha256_key[:32],'utf-8')
-                        key = base64.urlsafe_b64encode(sha256_key)
-                        obj = Fernet(key)
-                        # Retrive and decrypt
-                        result = show(user_name, website_name)
-                        for _ in result:
-                            print('     User name:', _[0])
-                            pwd = obj.decrypt(_[1].encode()).decode('utf-8')
-                            print('      Password:', pwd,'\n')
-                    
-                    # Print whole table, format the table in sql table print format
-                    # sqlite api have issue so table format print is done with normal
-                    # python print
-                    elif inp == 'display' or inp == 'display all':
-                        display_db(user_name)
-                        
-                    # Replace selected column and id with provided one
-                    elif inp == 'replace':
-#                        replace_opt = input('  Select ')
-#                        def replace_element(user_name, to_update, value, id_no)
-                        pass
-                    
-                    # Help function from utils, print contents from _help() function
-                    elif inp == 'help':
-                        _help()
-                    
                     # Logout of current user and return to main menu 
                     # user name and passwoer is deleted 
                     elif inp == 'logout':
@@ -98,6 +92,22 @@ def login(user_name, user_pwd):
                         print(f'Logged Out of  user {user_name}\n')
                         del(user_name)
                         break
+                        
+                    # Remove
+                    elif inp == 'remove':
+                        print('  Entire row including username password for the site will be deleted')
+                        id_no = input('  Enter row number to delete:')
+                        try:
+                            delete_entry(user_name, id_no)
+                        except Exception as error:
+                            print(error)
+                        
+                    # Replace selected column and id with provided one
+                    elif inp == 'replace':
+#                        replace_opt = input('  Select ')
+#                        def replace_element(user_name, to_update, value, id_no)
+                        pass
+                    
     except FileNotFoundError:
         print(f"No such user {user_name} found")
     

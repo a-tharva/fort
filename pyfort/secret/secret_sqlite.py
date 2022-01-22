@@ -23,8 +23,10 @@ def replace_element(user_name, to_update, value, id_no):
     try:
         cursor.execute(replace)
         print(f'  {to_update} updated')
+        cursor.execute('COMMIT')
     except Exception as error:
         print(error)
+    
     
 # Print selected row
 def show(user_name, website_name):
@@ -54,3 +56,9 @@ def display_db(user_name):
 def delete_table(user_name):
     delete_table = f'DROP TABLE {user_name}'
     cursor.execute(delete_table)
+    cursor.execute('COMMIT')
+    
+def delete_entry(user_name, id_no):
+    delete_entry = f'DELETE FORM {user_name} WHERE ID = {id_no}'
+    cursor.execute(delete_entry)
+    cursor.execute('COMMIT')
