@@ -2,8 +2,9 @@
 # hence path is defined in utils
 PATH = 'pyfort'
     
-# Help print function
+
 def _help():
+    # Help print function
     print('''
 
   [display / get / help / insert / logout / replace]
@@ -16,8 +17,9 @@ def _help():
   replace:    replace element from table
 ''')
 
-# logo print function
+
 def logo():
+    # logo print function
     print('''
   __         _
  / _|___ _ _| |_

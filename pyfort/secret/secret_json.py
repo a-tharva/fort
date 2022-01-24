@@ -8,8 +8,9 @@ from pyfort.utils.utils import _help
 from pyfort.secret.secret_sqlite  import * 
 
 
-# To signup for new user 
+
 def signup(user_name, userpwd):
+    # To signup for new user 
     user_pwd = hashlib.sha256(userpwd.encode())
     key = Fernet.generate_key()
     userpwd = userpwd.encode()
@@ -24,8 +25,9 @@ def signup(user_name, userpwd):
         file.write(json_obj)
     create_db(user_name)
     
-# User menu 
+
 def login(user_name, user_pwd):
+    # User menu 
     file_name = f'{PATH}/{user_name}.json'
     userpwd = hashlib.sha256(user_pwd.encode())
     try:
@@ -37,15 +39,14 @@ def login(user_name, user_pwd):
                 while True:
                     print('\n[display / get / help / insert / logout / remove / replace]')
                     inp = input('>>').lower()
-                    
-                    # Print whole table, format the table in sql table print format
-                    # sqlite api have issue so table format print is done with normal
-                    # python print
                     if inp == 'display' or inp == 'display all':
+                        # Print whole table, format the table in sql table print format
+                        # sqlite api have issue so table format print is done with normal
+                        # python print
                         display_db(user_name)
-                        
-                    # Print data with decrypted password    
+                          
                     elif inp == 'get':
+                        # Print data with decrypted password  
                         website_name = input('  Enter Website name :')
                         # Combining key with password
                         key = json_obj["key"]
@@ -62,12 +63,13 @@ def login(user_name, user_pwd):
                             pwd = obj.decrypt(_[1].encode()).decode('utf-8')
                             print('      Password:', pwd,'\n')
                             
-                    # Help function from utils, print contents from _help() function
                     elif inp == 'help':
+                        # Help function from utils, print contents from _help() function
                         _help()
                         
-                    # Insert into table with Password encryption
+                    
                     elif inp == 'insert':
+                        # Insert into table with Password encryption
                         # Combining key with password
                         key = json_obj["key"]
                         key = key[:len(key)-len(user_pwd)] + user_pwd
@@ -85,9 +87,9 @@ def login(user_name, user_pwd):
                         PASSWORD = obj.encrypt(PASSWORD).decode('utf-8')
                         insert_into(user_name, WEBSITE_NAME, WEBSITE_USER_NAME, PASSWORD)
                     
-                    # Logout of current user and return to main menu 
-                    # user name and passwoer is deleted 
                     elif inp == 'logout':
+                        # Logout of current user and return to main menu 
+                        # user name and passwoer is deleted 
                         del(user_pwd)
                         print(f'Logged Out of  user {user_name}\n')
                         del(user_name)
@@ -112,8 +114,9 @@ def login(user_name, user_pwd):
     except FileNotFoundError:
         print(f"No such user {user_name} found")
     
-# Verify user password 
+
 def verify_password(user_name, userpwd , file_name):
+    # Verify user password 
     userpwd = hashlib.sha256(userpwd.encode())
     with open (file_name, 'r') as file:
             json_obj = json.load(file)
