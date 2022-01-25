@@ -1,9 +1,12 @@
 import os
+import getpass
 
 from colorama import init
 from termcolor import colored, cprint
-from pyfort.secret.secret_json import * 
-from pyfort.secret.secret_sqlite import delete_table 
+
+from .utils.utils import PATH
+from .secret.secret_json import user 
+from .secret.secret_sqlite import handle
 
 
 # use Colorama to make Termcolor work on Windows too
@@ -21,7 +24,7 @@ def show_menu():
             # To login into account
             user_name = input(' Enter user name:')
             user_pwd = getpass.getpass(f' Enter password for {user_name}:')
-            login(user_name, user_pwd)
+            user.login(user_name, user_pwd)
             del(user_pwd)
             del(user_name)
                 
@@ -39,7 +42,7 @@ def show_menu():
                     print(' Try another name')
                 else:
                     userpwd = getpass.getpass(f' Enter password for {user_name}:')
-                    signup(user_name, userpwd)
+                    user.signup(user_name, userpwd)
                     print(colored('Account created', 'green'))
                     print(colored('Database created', 'green'))
             except Exception as Error:
@@ -58,13 +61,13 @@ def show_menu():
                 # Check if user exist
                 print(f'>File {user_name}.json exist')
                 print('>Verifying password')
-                flag = verify_password(user_name, userpwd, loc)
+                flag = user.verify_password(user_name, userpwd, loc)
                 if flag:
                     print('!!password verified')
                     confirm = input('>>Confirm want to delete account [Y/n]:')
                     confirm1 = input('  >>Sure want to delete data [Y/n]:')
                     if confirm == 'Y' and confirm1 == 'Y':
-                        delete_table(user_name)
+                        handle.delete_table(user_name)
                         os.remove(loc)
                         print('!!User file and data deleted!!')
                 else:

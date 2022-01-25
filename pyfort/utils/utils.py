@@ -20,10 +20,20 @@ def _help():
 
 def logo():
     # logo print function
-    print('''
-  __         _
- / _|___ _ _| |_
-|  _/ _ \ '_|  _|
-|_| \___/_|  \__|
-
-''')
+    print("""
+          kMdMk         
+        @@#MeMB@@        
+       @@       @@       
+      @@         @0      
+     vB@@xxxxxxx@@Bv       __         _
+    V@@@@@@3}K@@@@@@y     / _|___ _ _| |_
+    V@@@@@B` `Q@@@@@w    |  _/ _ \ '_|  _| 
+    V@@@@@@] [@@@@@@w    |_| \___/_|  \__|  Password Manager
+    V@@@@@#|_|#@@@@@w    
+    !dRRRRRRRRRRRRRd!""")
+        
+    print("""
+Program Created By a-tharva
+Link to Original: github.com/a-tharva/
+Info: - This is written in Python
+      - Still in development""")

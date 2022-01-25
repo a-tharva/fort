@@ -1,25 +1,9 @@
-from pyfort.menu import *
-
+from .menu import show_menu
+from .utils.utils import logo
 
 def main():
     try:
-        print("""
-          kMdMk         
-        @@#MeMB@@        
-       @@       @@       
-      @@         @0      
-     vB@@xxxxxxx@@Bv       __         _
-    V@@@@@@3}K@@@@@@y     / _|___ _ _| |_
-    V@@@@@B` `Q@@@@@w    |  _/ _ \ '_|  _| 
-    V@@@@@@] [@@@@@@w    |_| \___/_|  \__|  Password Manager
-    V@@@@@#|_|#@@@@@w    
-    !dRRRRRRRRRRRRRd!""")
-        
-        print("""
-Program Created By a-tharva
-Link to Original: github.com/a-tharva/
-Info: - This is written in Python
-      - Still in development""")
+        logo()
         show_menu()
         
     except KeyboardInterrupt:
