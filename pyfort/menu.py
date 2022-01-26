@@ -17,10 +17,10 @@ def show_menu():
     # Main menu
     while True: 
         print('\n[Login / Signup / Erase / Ctrl+C] \nLogin:Already created account / Signup:Create new account / Erase:Delete account!!!')
-        choice = input('>')
+        choice = input('>').lower()
         
         
-        if choice.lower() == 'login':
+        if choice == 'login':
             # To login into account
             user_name = input(' Enter user name:')
             user_pwd = getpass.getpass(f' Enter password for {user_name}:')
@@ -29,7 +29,7 @@ def show_menu():
             del(user_name)
                 
           
-        elif choice.lower() == 'signup':
+        elif choice == 'signup':
             # To signup for new user  
             try:
                 print('>Creating new user')
@@ -50,7 +50,7 @@ def show_menu():
                 print(Error)
                 
         
-        elif choice.lower() == 'erase':
+        elif choice == 'erase':
             # To delete all user related files and data
             flag = False
             user_name = input('Enter user name:')

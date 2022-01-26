@@ -1,4 +1,3 @@
-import base64
 import json
 import getpass
 import hashlib
