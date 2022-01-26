@@ -19,7 +19,7 @@ def _help():
 
 
 def logo():
-    # logo print function
+    # logo and main info print function
     print("""
           kMdMk         
         @@#MeMB@@        

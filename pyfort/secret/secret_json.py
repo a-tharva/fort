@@ -5,7 +5,7 @@ from cryptography.fernet import Fernet
 
 from ..utils.utils import _help, PATH
 from .secret_sqlite  import handle
-from ..data.secret_key import _key
+from ..lib.secret_key import _key
 
 
 class user:
@@ -23,9 +23,11 @@ class user:
             "key": key.decode('utf-8')
         }
         json_obj = json.dumps(data, indent = 3)
+        
         file_name = f'{PATH}/{user_name}.json'
         with open(file_name, 'a+') as file:
             file.write(json_obj)
+        
         handle.create_db(user_name)
 
 
