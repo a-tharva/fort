@@ -34,16 +34,21 @@ fort
 ![fort](https://user-images.githubusercontent.com/70326109/147367275-7ca73375-a66b-48f1-ae13-8eee1638e7eb.gif)
 ```
 fort
-> Login  # Already created account
+[Login / Signup / Erase / Ctrl+C] 
 
-  > insert        # insert into database
-  > display       # display whole database
-  > get           # get selected password and decrypt it
-  > logout        # logout of current acount
-  
-> Signup # Create new account
-> Erase  # Delete account!!!
-> Ctrl+C # Exit
+  Login:      Already created account  
+  Signup:     Create new account 
+  Erase:      Delete account!!!
+
+Login:
+[display / get / help / insert / logout / replace]
+
+  display:    display whole database 
+  get:        get selected password and decrypt it 
+  help:       print help context
+  insert:     insert into database 
+  logout:     logout of current acount
+  replace:    replace element from table
 ```
 
 ## Development
