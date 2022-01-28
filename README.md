@@ -53,7 +53,6 @@ Login:
 
 ## Development
 Still working on this project.<br>
-- The Erase functionality is currently not provided as it creates some issues, will add that in future.<br>
 - Next version will store everything in sqlite database instead of storing user details in json file.<br>
 - Copy Key option will be added to store key seperate as user want. 
 - Password / username / website name rename feature will be added in next version
@@ -67,9 +66,9 @@ If you have a suggestion that would make this better, please fork the repo and c
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+2. Create your Feature Branch (`git checkout -b feature/Feature`)
+3. Commit your Changes (`git commit -m 'Add some Feature'`)
+4. Push to the Branch (`git push origin feature/Feature`)
 5. Open a Pull Request
 
 
