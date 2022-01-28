@@ -1,5 +1,5 @@
 # fort
-v0.0.3
+v0.0.4
 
 ## About
 Command line application created in python with json and sqlite to easy store password. The stored data will be encrypted so only the person with master key will be able to access it.<br>
