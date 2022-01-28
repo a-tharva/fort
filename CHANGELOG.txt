@@ -14,7 +14,7 @@ Change Log
 -------------------
 - Fixed and modified how encryption key is generated
 
-0.0.4 (28/1/2022)
+0.0.5 (28/1/2022)
 -------------------
 - UI update
 - v0.0.4 final
